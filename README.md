@@ -2,6 +2,8 @@
 
 Removes subscription dialogs, replaces enterprise repository with non-subscription repository and replaces branding. Tested on PVE 5.
 
+!!!WARNING: do not run this on Proxmox 6, repo for debian stretch hardcoded in script!!!!
+
 ## Note
 
 Use at your own risk! Read the script before you run it. 
