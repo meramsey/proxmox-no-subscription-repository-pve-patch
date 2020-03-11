@@ -2,7 +2,7 @@
 
 Removes subscription dialogs, replaces enterprise repository with non-subscription repository and replaces branding. Tested on PVE 5.
 
-!!!WARNING: do not run this on Proxmox 6, repo for debian stretch hardcoded in script!!!!
+Supports both Proxmox 5.x and Proxmox 6.x
 
 ## Note
 
@@ -15,10 +15,10 @@ Use at your own risk! Read the script before you run it.
 
 ```bash
 # if root
-wget -qO - https://raw.githubusercontent.com/hellofaduck/pve-patch/master/patch.sh | bash
+wget -qO - https://gitlab.com/mikeramsey/proxmox-no-subscription-repository-pve-patch/-/raw/master/patch.sh | bash
 
 # if non-root
-wget -qO - https://raw.githubusercontent.com/hellofaduck/pve-patch/master/patch.sh | sudo bash
+wget -qO - https://gitlab.com/mikeramsey/proxmox-no-subscription-repository-pve-patch/-/raw/master/patch.sh | sudo bash
 ```
 
 ## Restore
