@@ -21,6 +21,12 @@ wget -qO - https://gitlab.com/mikeramsey/proxmox-no-subscription-repository-pve-
 wget -qO - https://gitlab.com/mikeramsey/proxmox-no-subscription-repository-pve-patch/-/raw/master/patch.sh | sudo bash
 ```
 
+## Update
+
+```
+apt-get update && apt-get dist-upgrade
+```
+
 ## Restore
 
 Enterprise repository
