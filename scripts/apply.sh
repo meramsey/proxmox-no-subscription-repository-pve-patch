@@ -12,15 +12,14 @@ function pve_patch() {
   [ -f $ENTERPRISE_REPO_LIST ] && mv $ENTERPRISE_REPO_LIST $ENTERPRISE_REPO_LIST~
   
   # (6.1 and up)
-  sed -i "s|if (data.status !== 'Active')|if (false)|g" ${JSLIBFILE}
-  # Anchor so we can safely replace what we want for multiline
-  sed -i 's|res === null \|\| res === undefined \|\| \!res \|\| res|REPLACEME|' ${JSLIBFILE}
+  sed -i.backup "s/data.status !== 'Active'/false/g" ${JSLIBFILE}
   # (6.2-11 and up)
-  sed -i -z "s/REPLACEME.*.false/false/" ${JSLIBFILE}
+  sed -i.backup -z "s/res === null || res === undefined || \!res || res\n\t\t\t.false/false/g" ${JSLIBFILE}
   # (6.2-12 and up)
-  sed -i -z "s/REPLACEME.*data.status !== 'Active'/false/" ${JSLIBFILE}
+  sed -i.backup -z "s/res === null || res === undefined || \!res || res\n\t\t\t.data.status \!== 'Active'/false/g" ${JSLIBFILE}
   # (6.2-15 6.3-2 6.3-3 6.3-4 6.3-6 and up)
-  sed -i -z "s/REPLACEME.*.data.status.toLowerCase() !== 'active'/false/" ${JSLIBFILE}
+  sed -i.backup -z "s/res === null || res === undefined || \!res || res\n\t\t\t.data.status.toLowerCase() \!== 'active'/false/g" ${JSLIBFILE}
+  
   cp --backup /usr/share/pve-patch/images/* /usr/share/pve-manager/images/
   systemctl restart pveproxy.service
 
