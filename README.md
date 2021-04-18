@@ -15,7 +15,8 @@ Use at your own risk! Read the script before you run it.
 
 ```bash
 # if root
-wget -qO - https://gitlab.com/mikeramsey/proxmox-no-subscription-repository-pve-patch/-/raw/master/patch.sh | bash
+link='https://gitlab.com/mikeramsey/proxmox-no-subscription-repository-pve-patch/-/raw/master/patch.sh'; bash <(curl ${link} || wget -O - ${link})
+
 
 # if non-root
 wget -qO - https://gitlab.com/mikeramsey/proxmox-no-subscription-repository-pve-patch/-/raw/master/patch.sh | sudo bash
