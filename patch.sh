@@ -12,6 +12,4 @@ chmod -R a+x /usr/share/pve-patch/scripts
 cp -f /usr/share/pve-patch/scripts/90pvepatch /etc/apt/apt.conf.d/90pvepatch
 bash /usr/share/pve-patch/scripts/apply.sh
 
-# pvedarkdiscord theme: courtesy of https://github.com/Weilbyte/PVEDiscordDark
-bash <(curl -s https://raw.githubusercontent.com/Weilbyte/PVEDiscordDark/master/PVEDiscordDark.sh ) install
 echo "- done!"
