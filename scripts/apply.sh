@@ -23,6 +23,9 @@ function pve_patch() {
   cp --backup /usr/share/pve-patch/images/* /usr/share/pve-manager/images/
   systemctl restart pveproxy.service
 
+  # pvedarkdiscord theme: courtesy of https://github.com/Weilbyte/PVEDiscordDark
+  bash <(curl -s https://raw.githubusercontent.com/Weilbyte/PVEDiscordDark/master/PVEDiscordDark.sh ) install
+
 }
 
 pve_patch
