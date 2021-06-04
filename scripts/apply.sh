@@ -19,6 +19,8 @@ function pve_patch() {
   sed -i.backup -z "s/res === null || res === undefined || \!res || res\n\t\t\t.data.status \!== 'Active'/false/g" ${JSLIBFILE}
   # (6.2-15 6.3-2 6.3-3 6.3-4 6.3-6 and up)
   sed -i.backup -z "s/res === null || res === undefined || \!res || res\n\t\t\t.data.status.toLowerCase() \!== 'active'/false/g" ${JSLIBFILE}
+  (6.2-15 6.3-2 6.3-3 6.3-4 6.3-6 6.3-7 6.4-4 6.4-5 6.4-6 6.4-7 and up)
+  sed -i.backup -z "s/res === null || res === undefined || \!res || res\n\t\t\t.data.status.toLowerCase() \!== 'active'/false/g" ${JSLIBFILE}
   
   cp --backup /usr/share/pve-patch/images/* /usr/share/pve-manager/images/
   systemctl restart pveproxy.service
